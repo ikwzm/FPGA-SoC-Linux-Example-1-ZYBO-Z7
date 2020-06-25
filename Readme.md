@@ -118,10 +118,9 @@ udmabuf4 == udmabuf5 : OK
 ```
 shell# rake uninstall
 dtbocfg.rb --remove uio_irq_sample
-[  526.495500] udmabuf udmabuf5: driver uninstalled
-[  526.500654] udmabuf amba:fpga-region0:pump-udmabuf5: driver unloaded
-[  526.508393] udmabuf udmabuf4: driver uninstalled
-[  526.513555] udmabuf amba:fpga-region0:pump-udmabuf4: driver unloaded
+[ 1581.796569] u-dma-buf amba:pump-udmabuf5: driver removed.
+[ 1581.803265] u-dma-buf amba:pump-udmabuf4: driver removed.
+[ 1581.812765] fclkcfg amba:fclk0: driver unloaded
 ```
 
 
