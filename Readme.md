@@ -15,25 +15,25 @@ FPGA-SoC-Linux example(1) binary and project and test code for ZYBO-Z7
 
 ### Install python3-numpy
 
-```
+```console
 shell# apt-get install python3-numpy
 ```
 
 ### Download FPGA-SoC-Linux-Example-1-ZYBO-Z7
 
-```
+```console
 shell$ git clone https://github.com/ikwzm/FPGA-SoC-Linux-Example-1-ZYBO-Z7
 shell$ cd FPGA-SoC-Linux-Example-1-ZYBO-Z7
 ```
 
 ### Install to FPGA and Device Tree
 
-```
+```console
 shell# rake install
 dtbocfg.rb --install uio_irq_sample --dts uio_irq_sample.dts
-<stdin>:22.13-27.20: Warning (unit_address_vs_reg): /fragment@1/[ 2561.587342] fpga_manager fpga0: writing pump_axi4.bin to Xilinx Zynq FPGA Manager
-__overlay__/pump-uio: node has a reg or ranges property, but no unit name
+<stdin>:22.13-27.20: Warning (unit_address_vs_reg): /fragment@1/__overlay__/pump-uio: node has a reg or ranges property, but no unit name
 <stdin>:9.13-41.4: Warning (avoid_unnecessary_addr_size): /fragment@1: unnecessary #address-cells/#size-cells without "ranges", "dma-ranges" or child "reg" property
+[ 2561.587342] fpga_manager fpga0: writing pump_axi4.bin to Xilinx Zynq FPGA Manager
 [ 2561.965598] OF: overlay: WARNING: memory leak will occur if overlay removed, property: /axi/fpga-region0/firmware-name
 [ 2561.980963] fclkcfg axi:fclk0: driver version : 1.9.0
 [ 2561.986042] fclkcfg axi:fclk0: device name    : axi:fclk0
@@ -59,13 +59,15 @@ __overlay__/pump-uio: node has a reg or ranges property, but no unit name
 
 ### Compile sample1 or sample2
 
-```
+```console
 shell# rake sample1 sample2
+gcc -D_GNU_SOURCE -o sample1 sample1.c
+gcc -D_GNU_SOURCE -o sample2 sample2.c
 ```
 
 ### Run sample1
 
-```
+```console
 shell# ./sample1
 elapsed_time = 5.930491 [msec]
 elapsed_time = 5.933923 [msec]
@@ -81,7 +83,7 @@ elapsed_time = 5.927797 [msec]
 
 ### Run sample2
 
-```
+```console
 shell# ./sample2
 elapsed_time = 5.945107 [msec]
 elapsed_time = 5.936888 [msec]
@@ -97,7 +99,7 @@ elapsed_time = 5.942011 [msec]
 
 ## Run sample.py
 
-```
+```console
 shell# python3 sample.py
 elapsed_time:5.948[msec]
 elapsed_time:5.874[msec]
@@ -115,7 +117,7 @@ udmabuf4 == udmabuf5 : OK
 
 ## Uninstall
 
-```
+```console
 shell# rake uninstall
 dtbocfg.rb --remove uio_irq_sample
 [ 1581.796569] u-dma-buf amba:pump-udmabuf5: driver removed.
